@@ -13,7 +13,7 @@ The `studycentralau` spider is designed to scrape web pages, remove unwanted ele
 Ensure that you have the following installed on your local machine:
 
   1. Python 3.6+
-  2. 2. Scrapy
+  2. Scrapy
   3. BeautifulSoup4
 
 ## Usage
