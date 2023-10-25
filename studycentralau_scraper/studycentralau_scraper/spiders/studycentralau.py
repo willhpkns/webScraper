@@ -22,9 +22,12 @@ class StudycentralauSpider(scrapy.Spider):
         
         selectedElement = next((soup.select(selector) for selector in contentSelector if soup.select(selector)), None)
         
-        for selector in ['head', 'header:nth-child(1)', 'menu', 'nav', 'footer:nth-last-child(1)', 'meta', 'script', 'link', 'style', 'noscript', 'svg', ':input'] + removeSelector:
+        for selector in ['head', 'header:nth-child(1)', 'menu', 'nav', 'footer:nth-last-child(1)', 'meta', 'script', 'link', 'style', 'noscript', 'svg'] + removeSelector:
             for tag in soup.select(selector):
                 tag.extract()
+                
+        for tag in soup.find_all('input'):
+            tag.extract()
 
         for tag in soup.find_all(True):
             if tag.name not in ['i']:
