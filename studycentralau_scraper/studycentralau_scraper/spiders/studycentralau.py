@@ -9,6 +9,10 @@ class StudycentralauSpider(scrapy.Spider):
     allowed_domains = ["studycentralau.com"]
     start_urls = ["https://studycentralau.com"]
 
+    def parse(self, response):
+        page_data = self.parse_web_page(response.body)
+        yield page_data
+
     def parse_web_page(self, body, contentSelector=None, removeSelector=None):
         contentSelector = contentSelector or []
         removeSelector = removeSelector or []
